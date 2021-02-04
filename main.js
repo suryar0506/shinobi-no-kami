@@ -5,7 +5,7 @@ var god_x = 10;
 var god_y = 10;
 var god_object = "";
 function god_add(){
-    fabric.Image.fromURL("shiva.jpg",function(Img){
+    fabric.Image.fromURL("Athena.png",function(Img){
         god_object = Img;
         god_object.scaleToWidth(150);
         god_object.scaleToHeight(140);
