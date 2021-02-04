@@ -1,7 +1,6 @@
 var canvas = new fabric.Canvas('myCanvas');
 var part_height = 30;
 var part_width = 30;
-var part_object = "";
 var god_x = 10;
 var god_y = 10;
 var god_object = "";
@@ -35,45 +34,21 @@ function my_keydown(e)
 {
 keyPressed = e.keyCode;
 console.log(keyPressed);
-if (e.shiftKey == true && keyPressed == '80')
+if (e.shiftKey == true && keyPressed == '65')
 {
-console.log("Shift key and p are pressed together.");
+console.log("Shift key and a are pressed together.");
 part_width = part_width + 10;
 part_height = part_height + 10;
 document.getElementById("current_width").innerHTML = part_width;
 document.getElementById("current_height").innerHTML = part_height;
 }
-if (e.shiftKey == true && keyPressed == '77')
+if (e.shiftKey == true && keyPressed == '66')
 {
-  console.log("Shift key and m are pressed together.")
+  console.log("Shift key and b are pressed together.")
   part_width = part_width - 10;
   part_height = part_height - 10;
   document.getElementById("current_width").innerHTML = part_width;
   document.getElementById("current_height").innerHTML = part_height;
-}
-if (keyPressed == ''){
-    new_image('');
-    console.log("head");
-}
-if(keyPressed == ''){
-    new_image('');
-    console.log("torso");
-}
-if (keyPressed == ''){
-    new_image('');
-    console.log("left hand");
-}
-if(keyPressed == ''){
-    new_image('');
-    console.log("right hand");
-}
-if (keyPressed == ''){
-    new_image('');
-    console.log("west leg");
-}
-if(keyPressed == ''){
-    new_image('');
-    console.log("east leg");
 }
 if (keyPressed == '38')
 {
@@ -84,6 +59,42 @@ if (keyPressed == '40')
 {
   down();
   console.log("down");
+}
+if (keyPressed == '37')
+{
+  left();
+  console.log("left");
+}
+if (keyPressed == '39')
+{
+  right();
+  console.log("right");
+}
+if (keyPressed == '72'){
+    new_image("anubis head.jpg");
+    console.log("head");
+}
+if(keyPressed == '84'){
+    new_image("Torso 2.png");
+    console.log("torso");
+    console.log("torso borso");
+}
+if (keyPressed == '76'){
+    new_image("Left hand.png");
+    console.log("left hand");
+    
+}
+if(keyPressed == '82'){
+    new_image("Right hand.png");
+    console.log("right hand");
+}
+if (keyPressed == '87'){
+    new_image("Left Leg.png");
+    console.log("west leg");
+}
+if(keyPressed == '69'){
+    new_image("right leg.jpeg");
+    console.log("east leg");
 }
 }
 function up(){
@@ -103,4 +114,22 @@ function up(){
     canvas.remove(god_object);
     god_add();
     }
+    }
+    function left(){
+    if(god_x >= 0){
+    god_x = god_x - part_width;
+    console.log("The body part width is ", + part_width);
+    console.log("When left, the X is ", + god_x, ".The Y is ", + god_y,".");
+    canvas.remove(god_object);
+    god_add();
+    }
+    }
+    function right(){
+        if(god_x <= 1000){
+            god_x = god_x + part_width;
+            console.log("The body part width is ", + part_width);
+            console.log("When right, the X is ", + god_x, ".The Y is ", + god_y,".");
+            canvas.remove(god_object);
+            god_add();
+            }
     }
